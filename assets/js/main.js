@@ -1,25 +1,16 @@
-/*
-	Twenty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	skel.breakpoints({
-		wide: '(max-width: 1680px)',
-		normal: '(max-width: 1280px)',
-		narrow: '(max-width: 980px)',
-		narrower: '(max-width: 840px)',
-		mobile: '(max-width: 736px)'
+		xlarge: '(max-width: 1680px)',
+		large: '(max-width: 1280px)',
+		medium: '(max-width: 980px)',
+		small: '(max-width: 736px)'
 	});
 
 	$(function() {
 
 		var	$window = $(window),
-			$body = $('body'),
-			$header = $('#header'),
-			$banner = $('#banner');
+			$body = $('body');
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
@@ -28,39 +19,22 @@
 				$body.removeClass('is-loading');
 			});
 
-		// CSS polyfills (IE<9).
-			if (skel.vars.IEVersion < 9)
-				$(':last-child').addClass('last-child');
-
 		// Fix: Placeholder polyfill.
 			$('form').placeholder();
 
-		// Prioritize "important" elements on narrower.
-			skel.on('+narrower -narrower', function() {
+		// Prioritize "important" elements on medium.
+			skel.on('+medium -medium', function() {
 				$.prioritize(
-					'.important\\28 narrower\\29',
-					skel.breakpoint('narrower').active
+					'.important\\28 medium\\29',
+					skel.breakpoint('medium').active
 				);
-			});
-
-		// Scrolly links.
-			$('.scrolly').scrolly({
-				speed: 1000,
-				offset: -10
-			});
-
-		// Dropdowns.
-			$('#nav > ul').dropotron({
-				mode: 'fade',
-				noOpenerFade: true,
-				expandMode: (skel.vars.touch ? 'click' : 'hover')
 			});
 
 		// Off-Canvas Navigation.
 
-			// Navigation Button.
+			// Navigation Toggle.
 				$(
-					'<div id="navButton">' +
+					'<div id="navToggle">' +
 						'<a href="#navPanel" class="toggle"></a>' +
 					'</div>'
 				)
@@ -88,31 +62,70 @@
 
 			// Fix: Remove navPanel transitions on WP<10 (poor/buggy performance).
 				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
-					$('#navButton, #navPanel, #page-wrapper')
+					$('#navToggle, #navPanel, #page-wrapper')
 						.css('transition', 'none');
 
-		// Header.
-		// If the header is using "alt" styling and #banner is present, use scrollwatch
-		// to revert it back to normal styling once the user scrolls past the banner.
-		// Note: This is disabled on mobile devices.
-			if (!skel.vars.mobile
-			&&	$header.hasClass('alt')
-			&&	$banner.length > 0) {
-
-				$window.on('load', function() {
-
-					$banner.scrollwatch({
-						delay:		0,
-						range:		1,
-						anchor:		'top',
-						on:			function() { $header.addClass('alt reveal'); },
-						off:		function() { $header.removeClass('alt'); }
-					});
-
-				});
-
-			}
-
 	});
+	
+	$(".ajax-form").validate({
+		rules: {
+			name: {
+			required: true,
+			minlength: 2
+			},
+			phone: {
+			required: true,
+			minlength: 10
+			},
+			message: {
+			required: true,
+			}
+		},
+		messages: {
+			name: "Пожалуйста, укажите Ваше имя",
+			phone: {
+			  required: "Пожалуйста, укажите Ваш телефон для подтверждения заказа",
+			  minlength: "Номер телефона не может быть короче 10 символов"
+			},
+			message: {
+			  required: "Пожалуйста, укажите необходимые параметры товара"
+			}
+		},
+		// errorPlacement: function(error, element) {
+		// },
+		submitHandler: function(form) {
+			$.ajax({
+				dataType: "jsonp",
+				url: "https://getsimpleform.com/messages/ajax?form_api_token=611298e2aef6031a2d171125cf11c1e8",
+				data: $(".ajax-form").serialize() 
+				}).done(function() {
+				//callback which can be used to show a thank you message
+				//and reset the form
+				$(".ajax-form").hide();
+				$(".form-thank-you").fadeIn("400");
+				yaCounter15918124.reachGoal('order');
+			});
+			return false; //to stop the form from submitting
+		}
+	});
+	
+	$(document).ready(function() {
+		$('.box').matchHeight();
+	});
+	
+	$(document).ready(function() {
+		$(".fancybox").fancybox({
+			fitToView : true,
+			beforeLoad : function() {         
+				this.fitToView  = !(this.element.data('fancybox-fit') == false); 
+			},
+			helpers : {
+				title: {
+					type: 'over'
+			}
+    }
+		});
+	});
+	
 
 })(jQuery);

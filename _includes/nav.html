@@ -1,0 +1,16 @@
+<div id="menu-wrapper">
+	<div id="nav-wrapper" class="container">
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="default">
+				<li {% if page.url == "/" %}class="current"{% endif %}><a href="/">Главная</a></li>
+				<li {% if page.url contains "/catalog/" %}class="current"{% endif %}><a href="/catalog/">Каталог</a></li>
+				<li {% if page.url contains "/uslugi/" %}class="current"{% endif %}><a href="/uslugi/">Услуги</a></li>
+				<li {% if page.url contains "/price-list/" %}class="current"{% endif %}><a href="/price-list/">Прайс-лист</a></li>
+				<li {% if page.url contains "/dostavka-i-oplata/" %}class="current"{% endif %}><a href="/dostavka-i-oplata/">Доставка и оплата</a></li>
+				<li {% if page.url contains "/blog/" %}class="current"{% endif %}><a href="/blog/">Блог</a></li>
+				<li {% if page.url contains "/contact/" %}class="current"{% endif %}><a href="/contact/">Контакты</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>

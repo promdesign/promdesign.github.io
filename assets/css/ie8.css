@@ -1,37 +1,65 @@
 /*
-	Twenty by HTML5 UP
+	Verti by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Section/Article */
+/* Basic */
 
-	section > .last-child, section.last-child,
-	article > .last-child,
-	article.last-child {
-		margin-bottom: 0;
+	body {
+		background-color: #f0f0f0;
 	}
 
-/* Banner */
+/* Image */
 
-	#banner {
-		background-image: url("../../images/banner.jpg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: auto;
-		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
+	.image img {
+		position: relative;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
 	}
 
-		#banner .inner {
-			background: #341b2b;
+/* Button */
+
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"],
+	.button,
+	button {
+		position: relative;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+	}
+
+/* Widgets */
+
+	.box,
+	.widget.contact ul li a {
+		position: relative;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+	}
+
+/* Header */
+
+	#logo h1 {
+		position: relative;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+	}
+
+/* Nav */
+
+	#nav ul li a, #nav ul li span {
+		position: relative;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+	}
+
+	.dropotron {
+		border: solid 1px #eee;
+		box-shadow: none !important;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+	}
+
+		.dropotron.level-0 {
+			box-shadow: none !important;
 		}
 
-/* CTA */
-
-	#cta {
-		background-image: url("../../images/banner.jpg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: auto;
-		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
-	}
+			.dropotron.level-0:before {
+				display: none;
+			}

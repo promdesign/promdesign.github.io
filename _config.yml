@@ -1,0 +1,16 @@
+gems:
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+
+logo: /images/logo_n_300.png
+  
+collections:
+  catalog:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      image: /images/porolon-v-roznicu-ot-porolonycha.jpg

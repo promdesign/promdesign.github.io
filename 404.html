@@ -1,0 +1,30 @@
+---
+title: Ошибка 404! Поролон не найден.
+description: Ошибка 404! Поролон не найден.
+layout: default
+permalink: /404.html
+prod_title: 404
+---
+<h2>Страница не найдена.</h2>
+<hr />
+<h3>Нам очень стыдно, но страница, которую Вы искали куда-то потерялась. :(</h3>
+<h3>Может быть выберите себе что-нибудь в нашем каталоге?</h3>
+
+<div class="row">
+	{% assign sorted_cat = site.catalog | sort: 'weight' %}
+	{% for cat in sorted_cat %}
+		{% if cat.type == "category" %}
+			<div class="4u 6u(large) 12u(small)">
+				<div class="box feature">
+					<a class="image featured" href={{ cat.url }}><img src="{{ cat.prod_image }}"/></a>
+					<div class="inner">
+						<header>
+							<a href={{ cat.url }}>{{ cat.prod_title }}</a>
+						</header>
+						<p>{{ cat.prod_short_desc }}</p>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>

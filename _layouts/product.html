@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+
+<html lang="ru">
+	<head>
+		{% include head.html %}
+		{% seo %}
+	</head>
+	<body class="left-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			{% include header.html %}	
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="3u 4u(medium) 12u$(small)">
+								{% include sidebar.html %}
+							</div>
+							<div class="9u 8u(medium) 12u$(small)">
+								<div id="content">
+
+									<!-- Content -->
+										{% include crumbs.html %}
+										<article>
+											<div>
+												<h1>{{ page.prod_title }}</h1>
+												{% assign url_list = page.url | split: '/' %}
+												{% assign prod_name = url_list | last %}
+												<div class="row">
+													<div class="4u 12u(small)">
+														<a title="{{ page.prod_title }}" class="image fit fancybox" href="/images/catalog/{{ prod_name }}.jpg" data-fancybox-group="gallery"><img src="/images/catalog/{{ prod_name }}_small.jpg" alt="{{ page.prod_title }}"/></a>
+														
+													</div>
+													<div class="8u 12u(small)">
+														{% assign rating_array = "4.7,4.8,4.9,4.5,4.6,4.4" | split:"," %}
+														{% assign count_array = "12,18,6,8,11,16" | split:"," %}
+														<script type="application/ld+json">
+														{
+														  "@context": "http://schema.org/",
+														  "@type": "Product",
+														  "name": "{{page.prod_title}}",
+														  "image": "http://porolonych.ru/images/catalog/{{prod_name}}.jpg",
+														  "description": "{{page.prod_full_desc | strip_html}}",
+														  "aggregateRating": {
+															"@type": "AggregateRating",
+															"ratingValue": "{{rating_array | sample}}",
+															"reviewCount": "{{count_array | sample}}"
+														  },
+														  "offers": {
+															"@type": "Offer",
+															"priceCurrency": "RUB",
+															"price": "{{page.price}}",
+															"priceValidUntil": "2020-11-05",
+															"availability": "http://schema.org/InStock",
+															"seller": {
+															  "@type": "Organization",
+															  "name": "Поролоныч"
+															}
+														  }
+														}
+														</script>
+														<p>{{page.prod_full_desc }}</p>
+														{% if page.prod_message %}
+														<p><b>{{ page.prod_message }}</b></p>
+														{% endif %}
+														<footer>
+															{% if page.price.size > 2 %}
+															<div>
+																<h3>Цена: {{page.price-b}}<span>{{ page.price }}</span>{{page.price-a}}</h3>
+															</div>
+															{% endif %}
+															<a href="#inline-form" class="button fancybox icon fa-shopping-cart" data-fancybox-fit="false">Купить</a>
+														</footer>
+														
+														<div style="display:none">
+															<div id="inline-form">
+																<form action="#" class="ajax-form">
+																	<h2>Заказ товара</h2>
+																	<p>Поля отмеченные <b>*</b> обязательны к заполнению</p>
+																	<input type="text" class="name" name="name" placeholder="Ваше имя*">
+																	<input type="text" class="phone" name="phone" placeholder="Ваш телефон*">
+																	<input type="text" class="email" name="email" placeholder="Ваш e-mail">
+																	<input type="text" class="address" name="address" placeholder="Адрес доставки/самовывоз">
+																	<textarea name="message" class="message" placeholder="Укажите необходимые параметры товара*"></textarea>
+																	<input style="display:none" type="text" class="product" name="product" value="{{ page.prod_title }}">
+																	<div class="form-btn">
+																		<input type="submit" class="submit" value="Отправить">
+																	</div>
+																</form>
+																<div class="form-thank-you" style="display:none;">
+																	 <h3>Спасибо за заказ!</h3>
+																	 <p>Наши менеджеры свяжутся с Вами в самое ближайшее время.</p>
+																</div>  
+															</div>
+														</div>
+													</div>
+												</div>
+												<br>
+												{% if content.size > 4 %}
+												<div class="row 0%">
+													<h3>Варианты товара:</h3>
+													<div class="table-wrapper">
+														{% if content contains 'end_mark' %}
+															{{ content | split:'end_mark' | first | remove: '<p>' | remove: '</p>' }}
+															<p>Для оптовых покупателей действуют специальные цены. <a href="/price-list/#{{prod_name}}">Подробнее</a></p>
+														{% else %}
+															{{ content }}
+														{% endif %}
+													</div>
+												</div>
+												{% endif %}
+												<div class="row 50%">
+													<div class="7u 12u(medium)">
+													
+													{% assign img_array = "" | split:"," %}
+													{% for file in site.static_files %}
+														{% if file.path contains page.url %}
+															{% assign img_array = img_array | push: file.path %}
+														{% endif %}
+													{% endfor %}
+
+													{% if img_array.size > 0 %}
+														
+															<h3>Дополнительные фото:</h3>
+															<div class="row 25%">
+																{% for img in img_array %}
+																	<div class="3u 4u(small)">
+																		{% assign temp_str = 'thumb/' | append: prod_name %}
+																		<a title="{{ page.prod_title }}" class="image fit fancybox" href="{{ img }}" data-fancybox-group="gallery"><img src="{{ img | replace: prod_name, temp_str }}" alt="{{ page.prod_title }}"/></a>
+																	</div>
+																{% endfor %}
+															</div>
+															<br>
+													{% endif %}
+													{% if page.chars != nil %}
+														
+															<h3>Характеристики товара:</h3>
+															<ul>
+																{% for char in page.chars %}
+																	<li>{{ char }}</li>
+																{% endfor %}
+															</ul>
+														
+													{% endif %}
+													{% if page.usage != nil %}
+														
+															<h3>Примеры использования:</h3>
+															<ul>
+																{% for uc in page.usage %}
+																	<li>{{ uc }}</li>
+																{% endfor %}
+															</ul>
+														
+													{% endif %}
+													
+													</div>
+													<div class="5u 12u(medium)">
+														<div id="how-to-buy">
+															<header>
+																<h3>Как купить товар</h3>
+															</header>
+															<ol>
+																<li>
+																	<p><b>Консультация</b> и оформление заказа по телефону <b>+7&nbsp;(499)&nbsp;408-00-24</b>.</p>
+																</li>
+																<li>
+																	<p><b>Самовывоз.</b></p>
+																	<p>Перед покупкой товара необходимо уточнить наличие в магазинe.</p>
+																	<a href="/contact/">ТЦ "Каширский двор-2" м. Каширская</a>
+																	<p>+7 (926) 136-96-23</p>
+																</li>
+																<li>
+																	<p><b>Доставка</b> ежедневно.</p>
+																	<a href="/dostavka-i-oplata/">Подробнее о доставке</a>
+																</li>
+															</ol>
+														</div>
+													</div>
+												</div>
+												{% if page.related %}
+												<h3>Сопутствующие товары:</h3>
+												<div class="row 50%">
+													
+													{% for rel-product in page.related %}
+														{% for product in site.catalog %}
+															{% if product.url contains rel-product %}
+																<div class="3u 4u(large) 6u(medium)">
+																	<div class="box feature">
+																		<a class="image feature" href={{ product.url }}><img src="/images/catalog/{{ rel-product }}_small.jpg"/></a>
+																		<div class="inner">
+																			<header>
+																				<a href={{ product.url }}>{{ product.prod_title }}</a>
+																			</header>
+																		</div>
+																	</div>
+																</div>
+															{% endif %}
+														{% endfor %}
+													{% endfor %}
+												</div>
+												{% endif %}
+											</div>
+										</article>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+			{% include footer.html %}

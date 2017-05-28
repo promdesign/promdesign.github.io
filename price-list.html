@@ -1,0 +1,34 @@
+---
+title: Прайс-лист - Поролоныч
+description: Цены на поролон и другую продукцию от компании "Поролоныч". Актуальные розничные и оптовые цены.
+redirect_from:
+- /index.php/prajs-list/
+
+layout: default
+permalink: /price-list/
+
+prod_title: Прайс-лист
+---
+<h1>{{ page.prod_title }}</h1>
+<hr />
+<p>Актуальные цены на все товары представлены в разделе <a href="/catalog/">Каталог</a>.</p>
+<p>Обращаем Ваше внимание на то, что цены в розничном магазине могут отличаться от представленных на сайте. Пожалуйста уточняйте цены на интересующие Вас товары по телефону <b>+7 (499) 408-00-24</b>.</p>
+<hr />
+<h2>Прайс-лист на поролон</h2>
+<p>У нас в магазине Вы можете купить поролон в розницу. Цена поролона в розницу указана в рублях за лист. При покупке поролона мелким оптом (от 20 000 руб.) цена поролона уменьшится. Практически любой поролоновый лист в розницу есть в наличии в нашем магазине, точное наличие поролона Вы всегда сможете узнать по телефону или отправив запрос по e-mail.</p>
+{% assign sorted_cat = site.catalog | sort: 'weight' %}
+{% for product in sorted_cat %}
+	{% if (product.type != "category" and product.url contains "porolon") %}
+		{% assign url_list = product.url | split: '/' %}
+		{% assign prod_name = url_list | last %}
+		<h3 id="{{prod_name}}"><a href="{{ product.url }}">{{ product.prod_title }}</a></h3>
+		<p>{{ product.prod_short_desc }} <a href="{{ product.url }}">Подробнее</a></p>
+		<div class="table-wrapper">
+			{% if product.content contains 'end_mark' %}
+				{{ product.content | split:'end_mark' | last | remove: '<p>' | remove: '</p>' }}
+			{% else %}
+				{{ product.content }}
+			{% endif %}
+		</div>
+	{% endif %}
+{% endfor %}
