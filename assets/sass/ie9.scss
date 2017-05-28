@@ -1,3 +1,8 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
 /*
 	Twenty by HTML5 UP
 	html5up.net | @ajlkn
@@ -6,6 +11,8 @@
 
 /* Banner */
 
-	#banner .inner {
-		opacity: 1.0;
+	#banner {
+		.inner {
+			opacity: 1.0;
+		}
 	}
