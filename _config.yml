@@ -1,6 +1,2 @@
-gems:
+plugins:
   - jekyll-seo-tag
-
-collections:
-   portfolio:
-    output: true
