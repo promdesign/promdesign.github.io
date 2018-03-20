@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		{% include head.html %}
+		{% seo %}
+	</head>
+	<body class="is-loading">
+		<div id="page-wrapper">
+			<!-- Header -->
+			{% include header.html %}	
+			<!-- Nav -->
+			{% include nav.html %}	
+
+			<!-- Banner -->
+			<div class="banner-wrapper">
+				<section id="banner" class="banner small container">
+					<h1>{{page.page-title}}</h1>
+				</section>
+			</div>
+			
+			<!-- Main -->
+			{{ content }}
+
+
+			<!-- Footer -->
+			{% include footer.html %}	
+			<!-- Scripts -->
+			{% include scripts.html %}	
+		</div>
+	</body>
+</html>

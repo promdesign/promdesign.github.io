@@ -1,2 +1,18 @@
-plugins:
+﻿plugins:
   - jekyll-seo-tag
+  - jekyll-redirect-from
+ 
+url: https://copperi.ru
+
+title: ""
+
+collections:
+  catalog:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      image: /images/banner-antiq.jpg

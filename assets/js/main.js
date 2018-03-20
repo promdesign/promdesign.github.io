@@ -135,5 +135,11 @@
 				}, 500);
 
 		});
+		
+		// Scrolly links.
+			$('.scrolly').scrolly({
+				speed: 2000
+			});
+		
 
 })(jQuery);
