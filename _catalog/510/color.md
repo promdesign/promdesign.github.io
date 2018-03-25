@@ -5,12 +5,29 @@ layout: product
 permalink: /catalog/:name
 
 model-title: "Color"
-model-desc: "Ornare interdum nascetur enim lobortis nunc amet placerat pellentesque nascetur in adipiscing. Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan. Justo aliquet massa adipiscing cubilia eu accumsan id. Arcu accumsan faucibus vis ultricies adipiscing ornare ut. Mi accumsan. Justo aliquet massa adipiscing cubilia eu accumsan id lorem ipsum dolor."
+model-desc: "Описание модели в одно-два предложения. Больше я из себя всё равно не выдавлю."
 
 weight: 20
 product: 1
 
+features:
+- "Материал: окрашенная сталь"
+- "Цвет: любой по RAL"
+- "Матовая или глянцевая окраска"
+- "Подключение: боковое или нижнее"
+
 related:
 - fufel
 - color
+- fufel
+- color
 ---
+|350x500 мм|615 Вт| 24 490 Р|
+|350x750 мм|615 Вт| 24 490 Р|
+|350x1000 мм|615 Вт| 24 490 Р|
+|450x500 мм|615 Вт| 24 490 Р|
+|450x750 мм|615 Вт| 24 490 Р|
+|450x1000 мм|615 Вт| 24 490 Р|
+|550x500 мм|615 Вт| 24 490 Р|
+|550x750 мм|615 Вт| 24 490 Р|
+|550x1000 мм|615 Вт| 24 490 Р|

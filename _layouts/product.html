@@ -35,12 +35,13 @@
 									<h2>{{ page.model-title }}</h2>
 								</header>
 								<p>{{ page.model-desc }}</p>
+								{% if page.features %}
 								<ul>
-									<li>Высота: 350-500 мм</li>
-									<li>Длина: 500-1000 мм</li>
-									<li>Мощность: 569-1756 Вт</li>
-									<li>Подключение: боковое, нижнее</li>
+								{% for feature in page.features %}
+									<li>{{feature}}</li>
+								{% endfor %}
 								</ul>
+								{% endif %}
 								<hr />
 								<footer>
 									<ul class="actions align-center">
@@ -59,78 +60,31 @@
 				</section>
 				<section class="container mobile-full">
 					<div class="row uniform 50%">
-						<div class="6u 12u(xsmall)">
-							<img class="image fit" src="{{img_array[1]}}" />
-						</div>
-						
 						{% for img in img_array %}
-							{% if forloop.index <= 2 %}
+							{% if forloop.index == 1 %}
 								{% continue %}
 							{% endif %}
-							<div class="6u 6u(medium) 12u(xsmall)">
+							<div class="6u 12u(medium)">
 								<img class="image fit" src="{{img}}" />
 							</div>
 						{% endfor %}
 					</div>
 				</section>
 				<hr />
+				{% if content.size > 4 %}
 				<section class="container">
-					<header>
-						<h2>Размеры и цены:</h2>
-					</header>
-					<div class="table-wrapper">
-						<table>
-							<tbody>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-								<tr>
-									<td>1600х750 мм</td>
-									<td>1 615 Вт</td>
-									<td>124 490 Р</td>
-								</tr>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-								<tr>
-									<td>350х500 мм</td>
-									<td>615 Вт</td>
-									<td>24 490 Р</td>
-								</tr>
-							</tbody>
-						</table>
+					<div class="row uniform 50%">
+						<div class="6u 12u$(medium)">
+							<header>
+								<h2>Размеры и цены:</h2>
+							</header>
+							<div class="table-wrapper">
+								{{content}}
+							</div>
+						</div>
 					</div>
 				</section>
-				
+				{% endif %}
 				{% if page.related %}
 				<hr />
 				<section class="container">
