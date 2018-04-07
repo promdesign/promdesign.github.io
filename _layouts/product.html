@@ -21,7 +21,9 @@
 					{% assign img_array = "" | split:"," %}
 					{% for file in site.static_files %}
 						{% if file.path contains model_name %}
-							{% assign img_array = img_array | push: file.path %}
+							{% unless file.path contains "small" %}
+								{% assign img_array = img_array | push: file.path %}
+							{% endunless %}
 						{% endif %}
 					{% endfor %}
 					
@@ -71,7 +73,8 @@
 					</div>
 				</section>
 				<hr />
-				{% if content.size > 4 %}
+				<!-- Price-list -->
+				{% if site.data.price[1][model_name] %}
 				<section class="container">
 					<div class="row uniform 50%">
 						<div class="6u 12u$(medium)">
@@ -79,7 +82,40 @@
 								<h2>Размеры и цены:</h2>
 							</header>
 							<div class="table-wrapper">
-								{{content}}
+								<table>
+									{% for model in site.data.size %}
+										{% if page.vertical %}
+										{% assign row = forloop.index |minus: 1 %}
+										{% if site.data.price[row][model_name] == nil %}
+											{% break %}
+										{% endif %}
+										<tr>
+											{% if model.size-v == nil %}
+												{% break %}
+											{% endif %}
+											{% assign row = forloop.index |minus: 1 %}
+											{% if site.data.price[row][model_name] == nil %}
+												{% break %}
+											{% endif %}
+											<td>{{model.size-v}} мм</td>
+											<td>{{model.power-v}} Вт</td>
+											
+											<td>{{site.data.price[row][model_name]}} &#8381;</td>
+										</tr>
+										{% else %}
+										{% assign row = forloop.index |minus: 1 %}
+										{% if site.data.price[row][model_name] == nil %}
+											{% break %}
+										{% endif %}
+										<tr>
+											<td>{{model.size}} мм</td>
+											<td>{{model.power}} Вт</td>
+											
+											<td>{{site.data.price[row][model_name]}} &#8381;</td>
+										</tr>
+										{% endif %}
+									{% endfor %}
+								</table>
 							</div>
 						</div>
 					</div>
@@ -95,9 +131,9 @@
 						{% for rel-product in page.related %}
 							{% for product in site.catalog %}
 								{% if product.url contains rel-product %}
-								<div class="3u 6u(small)">
+								<div class="4u 12u(small)">
 									<a class="feature" href="{{product.url}}">
-										<img src="/images/{{product.path | remove: "_" | remove: ".md"}}-1.jpg" />
+										<img src="/images/{{product.path | remove: "_" | remove: ".md"}}-small.jpg" />
 										<h3>{{product.model-title}}</h3>
 									</a>
 								</div>	

@@ -1,8 +1,8 @@
 ---
 category: 1
-coll-title: ipSum
+coll-title: Essential
 coll-desc: Fucking awwesome collection
 
-name: "ipsum"
+name: "essential"
 weight: 3
 ---

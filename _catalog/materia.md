@@ -1,8 +1,8 @@
 ---
 category: 1
-coll-title: LoreM
+coll-title: Materia
 coll-desc: Fucking awwesome collection
 
-name: "lorem"
+name: "materia"
 weight: 2
 ---
