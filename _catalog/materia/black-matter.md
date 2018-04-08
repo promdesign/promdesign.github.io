@@ -1,19 +1,22 @@
 ---
-title: FAQ по медным дизайн-радиаторам - COPPERI
-description: Ответы на самые часто задаваемые вопросы о медных дизайн-радиаторах COPPERI.
+title: Медный дизайн радитор copperi Black Matter. Цены и размеры.
+description: Купить медный дизайн радиатор copperi Black Matter в Москве.
 layout: product
 permalink: /catalog/:name
+
+header-color: "#fcf0e3"
 
 model-title: "Black Matter"
 model-desc: "Лаконичная форма и огромное количество цветовых сочетаний. "
 
-weight: 30
+weight: 20
 product: 1
 
 features:
 - "Материал: медь"
 - "Цвет: патина"
-- "Матовая или глянцевая окраска"
+- "Покрытие матовым или глянцевым лаком"
+- "Ручная работа - каждый радиатор уникален"
 - "Подключение: боковое или нижнее"
 
 related:
