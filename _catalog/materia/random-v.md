@@ -1,25 +1,26 @@
 ---
-title: Медный дизайн радитор copperi Black Matter. Цены и размеры.
-description: Купить медный дизайн радиатор copperi Black Matter в Москве.
+title: Медный дизайн радитор copperi Random V. Цены и размеры.
+description: Купить медный дизайн радиатор copperi Random V в Москве.
 layout: product
 permalink: /catalog/:name
 
-header-color: "#fcf0e3"
+header-color: "#fcf6e3"
 
-model-title: "Black Matter"
+model-title: "Random V"
 model-desc: "Черная патина на блестящей меди как темная материя между сияющими галактиками. Радиатор покрыт матовым или глянцевым лаком, чтобы сохранить рисунок неизменным."
 
-weight: 20
+weight: 15
 product: 1
+vertical: 1
 
 features:
-- "Материал: медь"
-- "Цвет: патина"
+- "Материал: сталь"
+- "Цвет: шлифованная сталь"
 - "Матовый или глянцевый лак"
 - "Ручная работа - каждый радиатор уникален"
 
 related:
+- black-matter
 - antiq
 - ocean
-- fufel
 ---

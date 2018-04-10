@@ -1,15 +1,15 @@
 ---
-title: Медный дизайн радитор copperi Black Matter. Цены и размеры.
-description: Купить медный дизайн радиатор copperi Black Matter в Москве.
+title: Медный дизайн радитор copperi Antiq. Цены и размеры.
+description: Купить медный дизайн радиатор copperi Antiq в Москве.
 layout: product
 permalink: /catalog/:name
 
-header-color: "#fcf0e3"
+header-color: "#fceae3"
 
-model-title: "Black Matter"
+model-title: "Antiq"
 model-desc: "Черная патина на блестящей меди как темная материя между сияющими галактиками. Радиатор покрыт матовым или глянцевым лаком, чтобы сохранить рисунок неизменным."
 
-weight: 20
+weight: 10
 product: 1
 
 features:
@@ -19,7 +19,7 @@ features:
 - "Ручная работа - каждый радиатор уникален"
 
 related:
-- antiq
+- black-matter
 - ocean
 - fufel
 ---
