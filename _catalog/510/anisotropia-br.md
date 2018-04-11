@@ -1,15 +1,15 @@
 ---
-title: Медный дизайн радитор copperi 62/38 Br. Цены и размеры.
-description: Купить медный дизайн радиатор copperi 62/38 Br в Москве.
+title: Медный дизайн радитор copperi Anisotropia Br. Цены и размеры.
+description: Купить медный дизайн радиатор copperi Anisotropia Br в Москве.
 layout: product
 permalink: /catalog/:name
 
 header-color: "#e3f6fc"
 
-model-title: "62/38 Br"
+model-title: "Anisotropia Br"
 model-desc: "Черная патина на блестящей меди как темная материя между сияющими галактиками. Радиатор покрыт матовым или глянцевым лаком, чтобы сохранить рисунок неизменным."
 
-weight: 20
+weight: 50
 product: 1
 
 features:
@@ -19,7 +19,7 @@ features:
 - "Ручная работа - каждый радиатор уникален"
 
 related:
-- 62-38-cu
-- anisotropia-br
-- plain
+- black-matter
+- antiq
+- ocean
 ---

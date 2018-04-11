@@ -19,7 +19,7 @@ features:
 - "Ручная работа - каждый радиатор уникален"
 
 related:
-- black-matter
+- 62-38-cu
+- anisotropia-br
 - antiq
-- ocean
 ---

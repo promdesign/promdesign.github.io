@@ -21,5 +21,5 @@ features:
 related:
 - black-matter
 - ocean
-- fufel
+- anisotropia-cu
 ---
