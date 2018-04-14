@@ -4,7 +4,7 @@ description: Купить медный дизайн радиатор copperi Ani
 layout: product
 permalink: /catalog/:name
 
-header-color: "#dfe0e5"
+header-color: "#dfe2e5"
 
 model-title: "Anisotropia V"
 model-desc: "Черная патина на блестящей меди как темная материя между сияющими галактиками. Радиатор покрыт матовым или глянцевым лаком, чтобы сохранить рисунок неизменным."
