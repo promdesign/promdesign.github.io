@@ -1,7 +1,7 @@
 ---
 category: 1
 coll-title: Materia
-coll-desc: Fucking awwesome collection
+coll-desc: "Естественная красота натуральных материалов"
 
 name: "materia"
 weight: 2

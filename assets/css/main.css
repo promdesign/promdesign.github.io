@@ -2,10 +2,6 @@
 @import url(font-awesome.min.css);
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i|Merriweather:300,300i,400,400i|Podkova|Spectral:300,300i,400,400i|Vollkorn:400,400i&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Codystar:300,400|Lobster|Monoton|Zilla+Slab+Highlight:400,700');
 
 @font-face {
 	font-family: 'Helvetica Neue Cyr Roman';
@@ -16,28 +12,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
-@font-face {
-font-family: 'Helvetica Neue Cyr Light';
-src: url('/assets/fonts/HelveticaNeueCyr-Light.eot');
-src: url('/assets/fonts/HelveticaNeueCyr-Light.eot?#iefix') format('embedded-opentype'),
-url('/assets/fonts/HelveticaNeueCyr-Light.woff') format('woff'),
-url('/assets/fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
-}
-
-@font-face {
-font-family: 'San Francisco Text Regular';
-src: url('/assets/fonts/SFUIText-Regular.eot');
-src: url('/assets/fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
-url('/assets/fonts/SFUIText-Regular.woff') format('woff'),
-url('/assets/fonts/SFUIText-Regular.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
-}
-
-
 
 /* Basic */
 
@@ -76,10 +50,10 @@ font-style: normal;
 
 	body, input, select, textarea {
 		color: #3e3e3e;
-		font-family: 'Helvetica Neue Cyr Roman', sans-serif;
+		font-family: 'Helvetica Neue Cyr Roman', Arial, sans-serif;
 		font-size: 16px;
 		font-weight: 300;
-		line-height: 1.65;
+		line-height: 1.65em;
 	}
 	
 		@media screen and (max-width: 480px) {
@@ -266,8 +240,8 @@ font-style: normal;
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #5AA6ED;
-			box-shadow: 0 0 0 1px #5AA6ED;
+			border-color: #888;
+			box-shadow: 0 0 0 1px #888;
 		}
 
 	.select-wrapper {
@@ -306,6 +280,7 @@ font-style: normal;
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
 	select {
 		height: 2.75em;
 	}
@@ -875,6 +850,7 @@ font-style: normal;
 		input[type="button"].special,
 		button.special,
 		.button.special {
+			box-shadow: none !important;
 			background-color: #3e3e3e;
 			color: #ffffff !important;
 		}
@@ -964,7 +940,7 @@ font-style: normal;
 			}
 			
 			#header > a.phone::before {
-				content: "+7 (495) 123-45-67";
+				content: "+7 (499) 390-72-14";
 				position: absolute;
 				height: 3em;
 				width: 0;
@@ -1643,37 +1619,7 @@ font-style: normal;
 		
 	
 
- .view-more {
-	 font-size: 1.2em;
-	 text-decoration: none;
-	 padding-bottom: 0.25em;
-	 border-bottom: solid 1px rgba(55,55,55,0.25);
-	 transition: all .5s cubic-bezier(.075,.82,.165,1);
-	 position: relative;
- }
- 
-	.view-more::after {
-		content: '→';
-		position: absolute;
-		right: -1em;
-		opacity: 0;
-		transition: all .4s cubic-bezier(.075,.82,.165,1);
-	}
- 
-	.view-more:hover {
-		border-bottom-color: #373737;
-	}
-	
-	.view-more:hover::after {
-		opacity: 1;
-		right: -2em;
-	}
-	
-	.large {
-		font-size: 1.5em;
-	}
-	
-/* Hero stuff */
+ /* Hero stuff */
 
 	.hero-container {
 		margin-top: 6em;
@@ -1686,3 +1632,107 @@ font-style: normal;
 				width: 90%  !important;
 			}
 		}
+		
+/* Modal popup */
+
+	/* The Modal (background) */
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 100001; /* Sit on top */
+		
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		margin: auto;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+	}
+	
+		.modal.show {
+			display: block;
+		}
+
+	/* Modal Content */
+	.modal-content {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		    -ms-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);
+		
+		background-color: #fff;
+		margin: auto;
+		padding: 0;
+				
+		width: 450px;
+		max-width: 90%;
+		
+		max-height: 100%;
+		
+		padding: 3em 1em 0 1em;
+		
+		overflow: auto;
+		
+		-webkit-animation-name: animatetop;
+		-webkit-animation-duration: 0.4s;
+		animation-name: animatetop;
+		animation-duration: 0.4s
+	}
+	
+		.modal-content form > *{
+			margin-bottom: 1em;
+		}
+
+	/* Add Animation */
+	@-webkit-keyframes animatetop {
+		from {top:-300px; opacity:0}
+		to {top:50%; opacity:1}
+	}
+
+	@keyframes animatetop {
+		from {top:-300px; opacity:0}
+		to {top:50%; opacity:1}
+	}
+
+	/* The Close Button */
+	.modal-close {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		height: 2em;
+		width: 2em;
+	}
+	
+		.modal-close:before, .modal-close:after {
+				content: '';
+				background-color: #2b2b2b;
+				height: 2px;
+				width: 2em;
+				top: 50%;
+				left: 50%;
+				position: absolute;
+				margin-left: -1em;
+				margin-top: -1px;
+				-webkit-transform: rotate(45deg);
+				    -ms-transform: rotate(45deg);
+				        transform: rotate(45deg);
+			}
+		
+		.modal-close:after {
+			-webkit-transform: rotate(-45deg);
+				    -ms-transform: rotate(-45deg);
+				        transform: rotate(-45deg);
+		}
+
+	.modal-close:hover,
+	.modal-close:focus {
+		opacity: 0.8;
+		cursor: pointer;
+	}

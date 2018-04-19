@@ -7,7 +7,7 @@ permalink: /catalog/:name
 header-color: "#fce3e3"
 
 model-title: "Plain"
-model-desc: "Лаконичная форма и огромное количество цветовых сочетаний."
+model-desc: "Лаконичная форма и огромное количество цветовых сочетаний. Переднюю панель радиатора можно окрасить в один цвет с корпусом или выбрать контрастный цвет."
 
 weight: 10
 product: 1
@@ -19,7 +19,7 @@ features:
 - "Подключение: боковое или нижнее"
 
 related:
-- fufel
-- color
-- fufel
+- plain-v
+- frame-h
+- antiq
 ---

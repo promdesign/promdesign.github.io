@@ -1,16 +1,17 @@
 ---
-title: Медный радиатор отопления copperi Duo. Цена и размеры
-description: Купить медный радиатор отопления copperi Duo в Москве. Цена и размеры.
+title: Медный радиатор отопления copperi Duo V. Цена и размеры
+description: Купить медный радиатор отопления copperi Duo V в Москве. Цена и размеры.
 layout: product
 permalink: /catalog/:name
 
-header-color: "#fceae3"
+header-color: "#fcf7e3"
 
-model-title: "Duo"
+model-title: "Duo V"
 model-desc: "Передняя панель радиатора изготовлена из двух слоёв разных цветов или материалов. В верхнем слое лазером вырезан рисунок, сквозь который виден нижний слой. Мы можем сделать рисунок по вашему эскизу или предложить свой вариант в нужном стиле."
 
-weight: 30
+weight: 40
 product: 1
+vertical: 1
 
 features:
 - "Материал: окрашенная или нержавеющая сталь, медь, латунь"
@@ -20,7 +21,7 @@ features:
 - "Подключение: боковое или нижнее"
 
 related:
-- frame-h
-- duo-v
-- anisotropia-cu
+- frame-v
+- duo-h
+- random-v
 ---

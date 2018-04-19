@@ -140,6 +140,68 @@
 			$('.scrolly').scrolly({
 				speed: 2000
 			});
+			
+		
+		//Modal
+		$(document).ready(function(){
+			
+			var btn = document.getElementsByClassName('modal-open');
+			for (var i = 0; i < btn.length; i++) {
+				var thisBtn = btn[i];
+				thisBtn.addEventListener("click", function(event){
+					var	modal = document.getElementById(this.getAttribute('data-modal'));
+					modal.classList.toggle('show');
+				});
+								
+			};
+			
+			var btnClose = document.getElementsByClassName('modal-close');
+			for (var i = 0; i < btnClose.length; i++) {
+				var thisBtn = btnClose[i];
+				thisBtn.addEventListener("click", function(event){
+					var	modal = document.getElementById(this.getAttribute('data-close'));
+					modal.classList.toggle('show');
+				});
+			};
+			
+		});
+		
+		$(document).ready(function(){
+						
+			window.addEventListener('click', function(event) {
+				var modal = document.getElementsByClassName('modal');
+				for (var i = 0; i < modal.length; i++) {
+					var thisModal = modal[i];
+					if (event.target == thisModal) {
+						thisModal.classList.remove('show');
+					}
+				}
+			});
+			
+		});	
+		
+		
+		//Form submission
+		$(document).ready(function(){
+			$('.ajax-form').submit(function(event) {
+				event.preventDefault();
+				var form = $(this);
+				$.ajax({
+					dataType: "jsonp",
+					url: "https://getsimpleform.com/messages/ajax?form_api_token=6155e5a53e9a2468cc242519b0569ead",
+					data: form.serialize()
+						}).done(function(data) {
+							$(".ajax-form").hide();
+							$(".form-succes").fadeIn("400");
+							yaCounter21957292.reachGoal('order');
+							ga('send', 'event', 'form', 'order');
+							fbq('track', 'Lead');
+						}).fail(function(data) {
+							$(".ajax-form").hide();
+							$(".form-error").fadeIn("400");
+						});
+			  });
+		});
 		
 
 })(jQuery);
