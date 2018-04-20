@@ -1,6 +1,6 @@
 ---
-title: Медный радиатор отопления copperi Frame V. Цена и размеры
-description: Купить медный радиатор отопления copperi Frame V в Москве. Цена и размеры.
+title: Вертикальный дизайнерский радиатор copperi Frame V. Фото и цены.
+description: Заказать вертикальный дизайнерский радиатор отопления copperi Frame V в Москве. Цена и фото.
 layout: product
 permalink: /catalog/:name
 
@@ -20,7 +20,7 @@ features:
 - "Подключение: боковое или нижнее"
 
 related:
-- fufel
-- color
-- fufel
+- plain-v
+- frame-h
+- random-v
 ---

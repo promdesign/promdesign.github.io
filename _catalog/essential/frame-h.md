@@ -1,6 +1,6 @@
 ---
-title: Медный радиатор отопления copperi Frame. Цена и размеры
-description: Купить медный радиатор отопления copperi Frame в Москве. Цена и размеры.
+title: Дизайнерский радиатор отопления copperi Frame. Фото и цены.
+description: Купить дизайнерский радиатор отопления copperi Frame в Москве. Цена и фото.
 layout: product
 permalink: /catalog/:name
 

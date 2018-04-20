@@ -1,6 +1,6 @@
 ---
-title: Медный дизайн радитор copperi Random V. Цены и размеры.
-description: Купить медный дизайн радиатор copperi Random V в Москве.
+title: Вертикальный дизайн-радитор copperi Random V. Цены и размеры.
+description: Заказать вертикальный дизайн-радитор отопления copperi Random V в Москве.
 layout: product
 permalink: /catalog/:name
 

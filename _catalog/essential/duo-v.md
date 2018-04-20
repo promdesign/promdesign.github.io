@@ -1,6 +1,6 @@
 ---
-title: Медный радиатор отопления copperi Duo V. Цена и размеры
-description: Купить медный радиатор отопления copperi Duo V в Москве. Цена и размеры.
+title: Вертикальный дизайнерский радиатор copperi Duo V. Цена и размеры.
+description: Купить вертикальный дизайнерский радиатор copperi Duo V в Москве. Цена и размеры.
 layout: product
 permalink: /catalog/:name
 
