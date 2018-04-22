@@ -4,7 +4,7 @@ description: Купить дизайнерский радитор отоплен
 layout: product
 permalink: /catalog/:name
 
-header-color: "#e3f6fc"
+header-color: "#e3fcf9"
 
 model-title: "Anisotropia Cu"
 model-desc: "Направленная шлифовка разбивает отражения по-разному вдоль и поперёк линий. Можно выбрать наш рисунок или предложить свой."

@@ -21,15 +21,17 @@
 					{% assign img_array = "" | split:"," %}
 					{% for file in site.static_files %}
 						{% if file.path contains model_name %}
-							{% unless file.path contains "small" %}
-								{% assign img_array = img_array | push: file.path %}
-							{% endunless %}
+							{% if file.path contains "catalog" %}
+								{% unless file.path contains "small" %}
+									{% assign img_array = img_array | push: file.path %}
+								{% endunless %}
+							{% endif %}
 						{% endif %}
 					{% endfor %}
 					
 					<div class="row">
 						<div class="6u 12u(medium)">
-							<img class="image fit" src="{{ img_array[0] }}" />
+							<img class="image fit" src="{{ img_array[0] }}" alt="Дизайнерский радиатор отопления copperi {{page.model-title}}"/>
 						</div>
 						<div class="6u 12u(medium)">
 							<div class="hero-container container">
@@ -94,7 +96,7 @@
 								{% continue %}
 							{% endif %}
 							<div class="6u 12u(medium)">
-								<img class="image fit" src="{{img}}" />
+								<img class="image fit" src="{{img}}" alt="Дизайнерский радиатор отопления copperi {{page.model-title}}-{{forloop.index}}"/>
 							</div>
 						{% endfor %}
 					</div>
@@ -160,7 +162,7 @@
 								{% if product.url contains rel-product %}
 								<div class="4u 12u(small)">
 									<a class="feature" href="{{product.url}}">
-										<img src="/images/{{product.path | remove: "_" | remove: ".md"}}-small.jpg" />
+										<img src="/images/{{product.path | remove: "_" | remove: ".md"}}-small.jpg" alt="Дизайнерский радиатор отопления copperi {{product.model-title}}"/>
 										<h3>{{product.model-title}}</h3>
 									</a>
 								</div>	
