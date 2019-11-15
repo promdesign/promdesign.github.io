@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+	{% include head.html %}
+	<body class="is-loading">
+		<!-- Header -->
+		{% include header.html %}
+		<!-- Nav -->
+		{% include nav.html %}
+		{% include cart.html %}
+		<!-- Main -->
+		
+		<div id="wrapper">
+			<article>
+			{% assign new_products = site.catalog | where: "type", "product" | where: "new", "1" | sort: "weight" %}
+			{% assign featured_products = site.catalog | where: "type", "product" | where: "featured", "1" | sort: "weight" %}
+				<section class="container">
+					<header class="main-header index">
+						<h1>Интерьер ручной работы</h1>
+					</header>
+					<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
+				</section>
+				<section class="container">
+					<div class="items">
+						<div class="item big">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/169.jpg" />
+								<div class="caption">
+									<h2>Текстиль</h2>
+									<p>Смотреть все товары</p>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/54-1.jpg" />
+								<div class="caption">
+									<h2>Керамика</h2>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/54-2.jpg" />
+								<div class="caption">
+									<h2>Керамика</h2>
+								</div>
+							</a>
+						</div>
+						<div class="item big">
+							<a href="/keramika/">
+								<img class="image fit" src="/images/keramika-main.jpg" />
+								<div class="caption">
+									<h2>Керамика</h2>
+									<p>Смотреть все товары</p>
+								</div>
+							</a>
+						</div>
+						<div class="item big">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/169-3.jpg" />
+								<div class="caption down-left">
+									<h2>Шоу-рум</h2>
+									<p>Приходите, можно всё потрогать</p>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/54-1.jpg" />
+								<div class="caption">
+									<h2>Керамика</h2>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/54-2.jpg" />
+								<div class="caption">
+									<h2>Керамика</h2>
+								</div>
+							</a>
+						</div>
+						<div class="item big">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/169.jpg" />
+							</a>
+						</div>
+					</div>
+				</section>
+				<hr class="major"/>
+				{% if new_products[0] %}
+				<section class="container">
+					<header>
+						<h2>Новинки:</h2>
+					</header>
+					<div class="items">
+						{% for product in new_products %}
+						
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/catalog/{{product.url}}-small.jpg" />
+								<div class="caption">
+									<h2>{{product.product-title}}</h2>
+									<p>{{product.product-price}} &#8381;</p>
+								</div>
+							</a>
+						</div>
+						
+					{% endfor %}
+					
+					</div>
+				</section>
+				<hr class="major"/>
+				{% endif %}
+				{% if featured_products[0] %}
+				<section class="container">
+					<header>
+						<h2>Популярные:</h2>
+					</header>
+					<div class="items">
+						{% for product in featured_products %}
+						
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/catalog/{{product.url}}-small.jpg" />
+								<div class="caption">
+									<h2>{{product.product-title}}</h2>
+									<p>{{product.product-price}} &#8381;</p>
+								</div>
+							</a>
+						</div>
+						
+					{% endfor %}
+					</div>
+				</section>
+				<hr class="major"/>
+				{% endif %}
+			</article>
+		</div>
+			
+
+		<!-- Footer -->
+		{% include footer.html %}
+		<!-- Scripts -->
+		{% include scripts.html %}
+
+	</body>
+</html>

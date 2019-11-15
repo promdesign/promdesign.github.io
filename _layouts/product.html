@@ -1,214 +1,121 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html lang="ru">
-	<head>
-		{% include head.html %}
-		{% seo %}
-	</head>
+	{% include head.html %}
 	<body class="is-loading">
-		<div id="page-wrapper">
-			<!-- Header -->
-			{% include header.html %}	
-			<!-- Nav -->
-			{% include nav.html %}	
-
-			<!-- Main -->
+		<!-- Header -->
+		{% include header.html %}
+		<!-- Nav -->
+		{% include nav.html %}
+		<!-- Cart -->
+		{% include cart.html %}
+		<!-- Main -->
+		
+		{% assign img_array = "" | split:"," %}
+		{% assign url_list = page.url | split: "/" %}
+		{% assign product_name = url_list | last %}
+		{% for file in site.static_files %}
+			{% if file.path contains page.url %}
+				{% unless file.path contains "_" %}
+					{% assign img_array = img_array | push: file.path %}
+				{%endunless%}
+			{% endif %}
+		{% endfor %}
+		<div id="wrapper">
 			<article>
-				<section>
-					{% assign url_list = page.url | split: '/' %}
-					{% assign model_name = url_list | last %}
-				
-					{% assign img_array = "" | split:"," %}
-					{% for file in site.static_files %}
-						{% if file.path contains model_name %}
-							{% if file.path contains "catalog" %}
-								{% unless file.path contains "small" %}
-									{% assign img_array = img_array | push: file.path %}
-								{% endunless %}
-							{% endif %}
-						{% endif %}
-					{% endfor %}
+				<div class="container">
 					
-					<div class="row">
-						<div class="6u 12u(medium)">
-							<img class="image fit" src="{{ img_array[0] }}" alt="Дизайнерский радиатор отопления copperi {{page.model-title}}"/>
-						</div>
-						<div class="6u 12u(medium)">
-							<div class="hero-container container">
-								<header>
-									{% assign rating_array = "4.7,4.8,4.9" | split:"," %}
-									{% assign count_array = "12,18,6,8,11,16" | split:"," %}
-									<script type="application/ld+json">
-									{
-									  "@context": "http://schema.org/",
-									  "@type": "Product",
-									  "name": "{{page.model-title}}",
-									  "image": "http://copperi.ru{{img_array[0]}}",
-									  "description": "{{page.model-desc}}",
-									  "aggregateRating": {
-										"@type": "AggregateRating",
-										"ratingValue": "{{rating_array | sample}}",
-										"reviewCount": "{{count_array | sample}}"
-									  },
-									  "offers": {
-										"@type": "Offer",
-										"priceCurrency": "RUB",
-										"price": "{{site.data.price[1][model_name]}}",
-										"priceValidUntil": "2020-11-05",
-										"availability": "http://schema.org/InStock",
-										"seller": {
-										  "@type": "Organization",
-										  "name": "copperi"
-										}
-									  }
+					<section class="product">
+						<img class="image fit" src="/images/catalog{{page.url}}-01_1600w.jpg" alt="{{page.product-title}}-фото-1" title="{{page.product-title}}-фото-1" srcset="/images/catalog{{page.url}}-01_1600w.jpg 1600w, /images/catalog{{page.url}}-01_1400w.jpg 1400w, /images/catalog{{page.url}}-01_1000w.jpg 1000w, /images/catalog{{page.url}}-01_800w.jpg 800w, /images/catalog{{page.url}}-01_600w.jpg 600w, /images/catalog{{page.url}}-01_400w.jpg 400w" sizes="(max-width: 780px) 100vw, (max-width: 980px) 45vw, 40vw"/>
+						<div>
+							<header class="main-header">
+								{% assign rating_array = "4.7,4.8,4.9" | split:"," %}
+								{% assign count_array = "12,18,6,8,11,16" | split:"," %}
+								<script type="application/ld+json">
+								{
+									"@context": "http://schema.org/",
+									"@type": "Product",
+									"name": "{{page.product-title}}",
+									"image": "https://veshi.shop/images/catalog{{page.url}}-01_1600w.jpg",
+									"description": "{{page.product-description}}",
+									"aggregateRating": {
+									"@type": "AggregateRating",
+									"ratingValue": "{{rating_array | sample}}",
+									"reviewCount": "{{count_array | sample}}"
+									},
+									"offers": {
+									"@type": "Offer",
+									"priceCurrency": "RUB",
+									"price": "{{page.product-price}}",
+									"priceValidUntil": "2021-11-05",
+									"availability": "http://schema.org/InStock",
+									"seller": {
+										"@type": "Organization",
+										"name": "veshi"
 									}
-									</script>
-									<h2>{{ page.model-title }}</h2>
-								</header>
-								<p>{{ page.model-desc }}</p>
-								{% if page.features %}
-								<ul>
-								{% for feature in page.features %}
-									<li>{{feature}}</li>
-								{% endfor %}
-								</ul>
-								{% endif %}
-								<hr />
-								<footer>
-									<ul class="actions align-center">
-										<li><a id="btn-order" href="#" class="button alt big modal-open" data-modal="modal-order">Заказать</a></li>
-									</ul>
-								</footer>
-							</div>
-						</div>
-					</div>
-				</section>
-				<hr />
-				<section class="container">
-					<header>
-						<h2>В деталях:</h2>
-					</header>
-				</section>
-				<section class="container mobile-full">
-					<div class="row uniform 50%">
-						{% for img in img_array %}
-							{% if forloop.index == 1 %}
-								{% continue %}
-							{% endif %}
-							<div class="6u 12u(medium)">
-								<img class="image fit" src="{{img}}" alt="Дизайнерский радиатор отопления copperi {{page.model-title}}-{{forloop.index}}"/>
-							</div>
-						{% endfor %}
-					</div>
-				</section>
-				<hr />
-				<!-- Price-list -->
-				{% if site.data.price[1][model_name] %}
-				<section class="container">
-					<div class="row uniform 50%">
-						<div class="6u 12u$(medium)">
-							<header>
-								<h2>Размеры и цены:</h2>
+									}
+								}
+								</script>
+								<h1>{{page.product-title}}</h1>
 							</header>
-							<div class="table-wrapper">
-								<table>
-									{% for model in site.data.size %}
-										{% if page.vertical %}
-										{% assign row = forloop.index |minus: 1 %}
-										{% if site.data.price[row][model_name] == nil %}
-											{% break %}
-										{% endif %}
-										<tr>
-											{% if model.size-v == nil %}
-												{% break %}
-											{% endif %}
-											{% assign row = forloop.index |minus: 1 %}
-											{% if site.data.price[row][model_name] == nil %}
-												{% break %}
-											{% endif %}
-											<td>{{model.size-v}} мм</td>
-											<td>{{model.power-v}} Вт</td>
-											
-											<td>{{site.data.price[row][model_name]}} &#8381;</td>
-										</tr>
-										{% else %}
-										{% assign row = forloop.index |minus: 1 %}
-										{% if site.data.price[row][model_name] == nil %}
-											{% break %}
-										{% endif %}
-										<tr>
-											<td>{{model.size}} мм</td>
-											<td>{{model.power}} Вт</td>
-											
-											<td>{{site.data.price[row][model_name]}} &#8381;</td>
-										</tr>
-										{% endif %}
-									{% endfor %}
-								</table>
-							</div>
+							<p>{{page.product-description}}</p>
+							{% if page.features %}
+							<ul>
+								{% for feature in page.features %}
+								<li>{{feature}}</li>
+								{% endfor %}
+							</ul>
+							{% endif %}
+							<h2>{{page.product-price}} &#8381;</h2>
+							<footer>
+								<ul class="actions">
+									<li>
+										<a href="#" class="button special big add-to-cart" data-name="{{page.product-title}}" data-price="{{page.product-price | remove: ' '}}" data-url="{{page.url}}">В корзину</a>
+									</li>
+								</ul>
+							</footer>
 						</div>
-					</div>
-				</section>
-				{% endif %}
-				{% if page.related %}
-				<hr />
-				<section class="container">
-					<header>
-						<h2>Похожие модели:</h2>
-					</header>
-					<div class="row uniform 25%">
-						{% for rel-product in page.related %}
-							{% for product in site.catalog %}
-								{% if product.url contains rel-product %}
-								<div class="4u 12u(small)">
-									<a class="feature" href="{{product.url}}">
-										<img src="/images/{{product.path | remove: "_" | remove: ".md"}}-small.jpg" alt="Дизайнерский радиатор отопления copperi {{product.model-title}}"/>
-										<h3>{{product.model-title}}</h3>
-									</a>
-								</div>	
-								{% endif %}
-							{% endfor %}
+					</section>
+					{% if img_array.size > 1 %}
+					<hr class="major"/>
+					<h2>Фотографии:</h2>
+					<section class="photos">
+						{% for img in img_array %}
+							{% unless img contains "01" %}
+								<img class="image fit" loading="lazy" src="{{img | remove: '.jpg'}}_1600w.jpg" alt="{{page.product-title}}-фото-{{forloop.index}}" title="{{page.product-title}}-фото-{{forloop.index}}" srcset="{{img | remove: '.jpg'}}_1600w.jpg 1600w, {{img | remove: '.jpg'}}_1400w.jpg 1400w, {{img | remove: '.jpg'}}_1000w.jpg 1000w, {{img | remove: '.jpg'}}_800w.jpg 800w, {{img | remove: '.jpg'}}_600w.jpg 600w, {{img | remove: '.jpg'}}_400w.jpg 400w" sizes="(max-width: 780px) 100vw, (max-width: 980px) 45vw, 40vw"/>
+							{% endunless %}
 						{% endfor %}
-					</div>
-				</section>
-				{% endif %}
-				<footer class="container align-center">
-					<ul class="actions">
-						<li><a class="button big alt" href="/catalog/">Весь каталог</a></li>
-					</ul>
-				</footer>
+					</section>
+					{% endif %}
+					{% if page.related %}
+					<hr class="major"/>
+					<h2>Смотрите также:</h2>
+					<section class="items">
+						{% for related_product in page.related %}
+						{% for product in site.catalog %}
+						{% if product.url contains related_product %}
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" loading="lazy" src="/images/catalog{{product.url}}-01_400w.jpg" alt="{{product.product-title}}-фото-1" title="{{product.product-title}}-фото-1" srcset="/images/catalog{{product.url}}-01_1600w.jpg 1600w, /images/catalog{{product.url}}-01_1400w.jpg 1400w, /images/catalog{{product.url}}-01_1000w.jpg 1000w, /images/catalog{{product.url}}-01_800w.jpg 800w, /images/catalog{{product.url}}-01_600w.jpg 600w, /images/catalog{{product.url}}-01_400w.jpg 400w" sizes="(max-width: 660px) 100vw, (max-width: 980px) 45vw, (max-width: 1080px) 80vw, (max-width: 1450px) 40vw, (max-width: 1820px) 26vw, 16vw"/>
+								<div class="caption">
+									<h2>{{product.product-title}}</h2>
+									<p>{{product.product-price}} &#8381;</p>
+								</div>
+							</a>
+						</div>
+						{% endif %}
+						{% endfor %}
+						{% endfor %}
+					</section>
+					{% endif %}
+				</div>
 			</article>
-			<!-- Footer -->
-			{% include footer.html %}	
-			<!-- Scripts -->
-			{% include scripts.html %}	
 		</div>
-		<!-- The Modal -->
-		<div id="modal-order" class="modal">
+			
 
-			<!-- Modal content -->
-			<div class="modal-content special">
-				<span id="modal-close-order" class="modal-close" data-close="modal-order"></span>
-				<form action="#" class="ajax-form">
-					<h3 class="align-center">ЗАКАЗ</h3>
-					<input type="text" class="name" name="name" placeholder="Ваше имя*" required>
-					<input type="tel" class="phone" name="phone" placeholder="Номер телефона*" required>
-					<input type="email" class="email" name="email" placeholder="E-mail*" required>
-					<textarea rows="4" name="message" class="message" placeholder="Комментарий*" required></textarea>
-					<ul class="actions align-center">
-						<li><input type="submit" class="alt big fit" style="border:0" value="Отправить"></li>
-					</ul>
-				</form>
-				<div class="form-succes" style="display:none;">
-					 <h3>Спасибо!</h3>
-					 <p>Мы свяжемся с Вами в самое ближайшее время!</p>
-				</div>
-				<div class="form-error" style="display:none;">
-					 <h3>Ой!</h3>
-					 <p>Что-то пошло не так. Попробуйте отправить заказ чуть позже или просто позвоните нам.</p>
-				</div>
-			</div>
+		<!-- Footer -->
+		{% include footer.html %}
+		<!-- Scripts -->
+		{% include scripts.html %}
 
-		</div>
 	</body>
 </html>

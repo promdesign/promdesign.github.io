@@ -1,18 +1,25 @@
-﻿plugins:
+plugins:
   - jekyll-seo-tag
-  - jekyll-redirect-from
- 
-url: https://copperi.ru
-
-title: ""
-
+  
 collections:
   catalog:
     output: true
+
+social:
+  name: Veshi
+  links:
+    - https://www.facebook.com/
+    - http://instagram.com/
+
+logo: /images/logo.svg
+url:
+
+title: ""
+lang: "ru_RU"
 
 defaults:
   -
     scope:
       path: ""
     values:
-      image: /images/dizaynerskiy-radiator-otoplenia-copperi-anisotropia-cu.jpg
+      image: /images/logo.jpg

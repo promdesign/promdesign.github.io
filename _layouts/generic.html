@@ -1,32 +1,29 @@
 <!DOCTYPE HTML>
-
 <html lang="ru">
-	<head>
-		{% include head.html %}
-		{% seo %}
-	</head>
+	{% include head.html %}
 	<body class="is-loading">
-		<div id="page-wrapper">
-			<!-- Header -->
-			{% include header.html %}	
-			<!-- Nav -->
-			{% include nav.html %}	
-
-			<!-- Banner -->
-			<div class="banner-wrapper">
-				<section id="banner" class="banner small container">
-					<h1>{{page.page-title}}</h1>
-				</section>
-			</div>
-			
-			<!-- Main -->
-			{{ content }}
-
-
-			<!-- Footer -->
-			{% include footer.html %}	
-			<!-- Scripts -->
-			{% include scripts.html %}	
+		<!-- Header -->
+		{% include header.html %}
+		<!-- Nav -->
+		{% include nav.html %}
+		{% include cart.html %}
+		<!-- Main -->
+		<div id="wrapper">
+			<article>
+				<div class="container">
+					<header class="main-header">
+						<h1>{{page.page-title}}</h1>
+					</header>
+					{{content}}
+				</div>
+			</article>
 		</div>
+			
+
+		<!-- Footer -->
+		{% include footer.html %}
+		<!-- Scripts -->
+		{% include scripts.html %}
+
 	</body>
 </html>
