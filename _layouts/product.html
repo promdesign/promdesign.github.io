@@ -74,7 +74,7 @@
 							<footer>
 								<ul class="actions">
 									<li>
-										<a href="#" class="button special big add-to-cart" data-name="{{page.product-title}}" data-price="{{page.product-price | remove: ' '}}" data-url="{{page.url}}">В корзину</a>
+										<a href="#" class="button special big add-to-cart" data-name='{{page.product-title}}' data-price="{{page.product-price | remove: ' '}}" data-url="{{page.url}}">В корзину</a>
 									</li>
 								</ul>
 							</footer>
@@ -90,6 +90,11 @@
 							{% endunless %}
 						{% endfor %}
 					</section>
+					{% endif %}
+					{% if page.product-video %}
+					<hr class="major"/>
+					<h2>Видео:</h2>
+					{{ page.product-video }}
 					{% endif %}
 					{% if page.related %}
 					<hr class="major"/>
